@@ -1,0 +1,25 @@
+---
+- name: Adding perfSONAR repo
+  yum:
+    name: http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
+    state: present
+
+- name: Installing perfSONAR Central Management (This may take a while...)
+  yum:
+    name: perfsonar-centralmanagement
+    state: latest
+
+- name: Configuring Apache and MadDash
+  command: {{ commands }}
+  with_items:
+  - echo "#Fix to redirect from apache deault welcome page to actual dashboard." >> /etc/httpd/conf/httpd.conf
+  - echo "RewriteEngine On" >> /etc/httpd/conf/httpd.conf
+  - echo "RewriteRule /.noindex* http://%{HTTP_HOST}/maddash-webui/ [R]" >> /etc/httpd/conf/httpd.conf
+  - systemctl enable maddash-server
+  - systemctl start maddash-server
+  - systemctl enable httpd
+  - systemctl start httpd
+  #- /usr/sbin/esmond_manage add_ps_metadata_post_user $new_user #Auth with api key
+  #- /usr/sbin/esmond_manage add_timeseries_post_user $same_new_user > /root/esmondAPIkey.txt
+  #Allow anyone to POST to archive (Debug purposes)
+  #- /usr/sbin/esmond_manage add_user_ip_address $user 0.0.0.0 0.0.0.0/32

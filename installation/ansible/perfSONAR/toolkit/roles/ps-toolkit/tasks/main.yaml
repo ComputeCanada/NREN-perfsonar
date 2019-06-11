@@ -1,0 +1,13 @@
+---
+- name: Adding perfSONAR repo
+  yum:
+    name: http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
+    state: present
+
+- name: Installing perfSONAR Toolkit (This may take a while...)
+  yum:
+    name: perfsonar-toolkit 
+    state: latest
+
+- name: Adding perfSONAR firewall rules
+  command: /usr/lib/perfsonar/scripts/configure_firewall install
