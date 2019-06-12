@@ -6,6 +6,6 @@
 
 - name: Installing default packages 
   yum: 
-    name: vim
+    name: vim,wget
     state: latest
 

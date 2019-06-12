@@ -6,9 +6,5 @@
   roles:
     - common
     - selinux
-    - ps-management
-    - certs
-
-  tasks: 
-    - debug:
-        msg: "Login as root to finish the setup!"   
+    - ps-web-admin
+    - certs  

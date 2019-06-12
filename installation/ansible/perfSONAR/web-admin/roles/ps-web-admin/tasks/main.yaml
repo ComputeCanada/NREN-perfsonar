@@ -17,10 +17,10 @@
   command: {{ commands }}
   with_items:
   #PWA must run on a different port than MadDash ie. 8000 and 8443
-  - sed -i 's#listen       80;#listen       8000;#g' /etc/pwa/nginx/conf.d/pwa.conf
-  - sed -i 's#listen       443 ssl;#listen       8443;#g' /etc/pwa/nginx/conf.d/pwa.conf
-  - sed -i 's#-p 80:80#-p 8000:8000#g' /usr/local/sbin/start_pwa_containers.sh
-  - sed -i 's#-p 443:443#-p 8443:8443#g' /usr/local/sbin/start_pwa_containers.sh
+  #- sed -i 's#listen       80;#listen       8000;#g' /etc/pwa/nginx/conf.d/pwa.conf
+  #- sed -i 's#listen       443 ssl;#listen       8443;#g' /etc/pwa/nginx/conf.d/pwa.conf
+  #- sed -i 's#-p 80:80#-p 8000:8000#g' /usr/local/sbin/start_pwa_containers.sh
+  #- sed -i 's#-p 443:443#-p 8443:8443#g' /usr/local/sbin/start_pwa_containers.sh
   #Thanks but no thanks for relative paths...
   - sed -i 's#./start_pwa_containers.sh#/usr/local/sbin/start_pwa_containers.sh#g' /usr/local/sbin/update_pwa_containers.sh
 
@@ -28,8 +28,8 @@
 - name: Downloading and starting Docker Containers (Very long...)
   command: /usr/local/sbin/start_pwa_containers.sh
 
-- name: Copying custom scripts to /root/
+- name: Copying custom scripts to /root
     copy:
-      src: ~/scripts/*
+      src: ./scripts/*
       dest: /root
 
