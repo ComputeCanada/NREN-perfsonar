@@ -1,5 +1,0 @@
----
-- name: Installing certbot (This may take a while...)
-  yum:
-    name: certbot,python2-certbot-apache 
-    state: latest

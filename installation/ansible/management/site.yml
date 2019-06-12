@@ -1,0 +1,14 @@
+---
+- name: Perfsonar Central Management and Web Admin Setup
+  hosts: centos@206.12.91.154
+  remote_user: centos
+  become: yes
+  roles:
+    - common
+    - selinux
+    - ps-management
+    - certs
+
+  tasks: 
+    - debug:
+        msg: "Login as root to finish the setup!"   
