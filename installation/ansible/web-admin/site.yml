@@ -1,6 +1,7 @@
 ---
-- name: Perfsonar Central Management and Web Admin Setup
-  hosts: centos@206.12.91.154
+- name: Web Admin Setup
+  # ansible-playbook site.yml --extra-vars "remote_host=$(user)@$(address)"
+  hosts: {{ remote_host }}
   remote_user: centos
   become: yes
   roles:
