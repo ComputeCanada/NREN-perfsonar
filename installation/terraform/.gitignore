@@ -1,3 +1,6 @@
+# Openstack Source files
+*-dev-openrc.sh
+
 # Local .terraform directories
 **/.terraform/*
 
