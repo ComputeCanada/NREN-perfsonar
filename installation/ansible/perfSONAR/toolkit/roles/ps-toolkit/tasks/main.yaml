@@ -11,3 +11,8 @@
 
 - name: Adding perfSONAR firewall rules
   command: /usr/lib/perfsonar/scripts/configure_firewall install
+
+- name: Customizing web page.
+    copy:
+      src: ./ressources/usr/lib/perfsonar/web-ng/root/images/*
+      dest: /usr/lib/perfsonar/web-ng/root/images/
