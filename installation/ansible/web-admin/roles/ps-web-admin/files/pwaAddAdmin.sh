@@ -9,7 +9,7 @@ echo -n "Enter full name and press [ENTER]: "
 read name
 echo -n "Enter email and press [ENTER]: "
 read email
-echo "Addin user $user to admins..."
+echo "Adding user: $user to admins..."
 docker exec sca-auth /app/bin/auth.js useradd --username $user --fullname "$name" --email "$email" [--password "$passwd"]
 docker exec sca-auth /app/bin/auth.js modscope --username $user --add '{"pwa": ["user", "admin"]}'
 docker exec sca-auth /app/bin/auth.js setpass --username $user --password "$passwd"

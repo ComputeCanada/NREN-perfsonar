@@ -1,0 +1,11 @@
+[Unit]
+Description=Updates and starts PWA docker containers on system restart.
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/local/sbin/update_pwa_containers.sh
+
+[Install]
+WantedBy=multi-user.target

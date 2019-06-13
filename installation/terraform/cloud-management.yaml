@@ -3,7 +3,7 @@ hostname: centralManagement
 runcmd: 
   #Scripts
   - bash /root/disableSEL.sh
-  - bash /root/install.sh --local
+  - bash /root/install.sh #--local
   - bash /root/setupDocker.sh
   - bash /root/setupPWA.sh #PsconfigWebAdmin
   - bash /root/setupCMA.sh #Central Measurement Archive
