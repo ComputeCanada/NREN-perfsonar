@@ -1,8 +1,7 @@
 ---
 - name: Perfsonar toolkit Setup
-  # ansible-playbook site.yml --extra-vars "remote_host=$(user)@$(address)"
-  hosts: {{ remote_host }}
-  remote_user: centos
+  hosts: pstoolkit
+  remote_user: pavillen
   become: yes
   roles:
     - common

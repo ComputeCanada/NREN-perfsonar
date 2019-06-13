@@ -1,15 +1,10 @@
 ---
 - name: Perfsonar Central Management Setup
-  # ansible-playbook site.yml --extra-vars "remote_host=$(user)@$(address)"
-  hosts: {{ remote_host }}
-  remote_user: centos
+  hosts: psmanagement
+  remote_user: pavillen
   become: yes
   roles:
     - common
     - selinux
     - ps-management
     - certs
-
-  tasks: 
-    - debug:
-        msg: "Login as root to finish the setup!"   
