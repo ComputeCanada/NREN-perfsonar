@@ -26,6 +26,6 @@ resource "openstack_compute_floatingip_associate_v2" "fip_2" {
 
 # Outputs
 
-output "Toolkit Public Address" {
+output "toolkit-public-address" {
   value = "${openstack_networking_floatingip_v2.fip_2.address}"
 }

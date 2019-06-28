@@ -11,8 +11,3 @@
 
 - name: Adding perfSONAR firewall rules
   command: /usr/lib/perfsonar/scripts/configure_firewall install
-
-- name: Customizing the web page
-  copy:
-    src: "perfSONAR-logo-reversed-green-cc.png"
-    dest: "/usr/lib/perfsonar/web-ng/root/images/perfSONAR-logo-reversed-green.png"

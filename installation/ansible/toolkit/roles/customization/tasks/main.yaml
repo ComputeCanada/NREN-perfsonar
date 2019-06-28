@@ -1,0 +1,30 @@
+---
+- name: Customizing the PerfSONAR web page
+  copy:
+    src: "computecanada.png"
+    dest: "/usr/lib/perfsonar/web-ng/root/images/perfSONAR-logo-reversed-green.png"
+  when: organisation_flavour == 1
+
+  - name: Customizing the PerfSONAR web page
+  copy:
+    src: "calculquebec.png"
+    dest: "/usr/lib/perfsonar/web-ng/root/images/perfSONAR-logo-reversed-green.png"
+  when: organisation_flavour == 2
+
+  - name: Customizing the PerfSONAR web page
+  copy:
+    src: "westgrid.png"
+    dest: "/usr/lib/perfsonar/web-ng/root/images/perfSONAR-logo-reversed-green.png"
+  when: organisation_flavour == 3
+
+  - name: Customizing the PerfSONAR web page
+  copy:
+    src: "canarie.png"
+    dest: "/usr/lib/perfsonar/web-ng/root/images/perfSONAR-logo-reversed-green.png"
+  when: organisation_flavour == 4
+
+  - name: Customizing the PerfSONAR web page
+  copy:
+    src: "risq.png"
+    dest: "/usr/lib/perfsonar/web-ng/root/images/perfSONAR-logo-reversed-green.png"
+  when: organisation_flavour == 5

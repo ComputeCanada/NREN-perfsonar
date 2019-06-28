@@ -49,6 +49,7 @@
   #Thanks but no thanks for relative paths...
   #- sed -i 's#./start_pwa_containers.sh#/usr/local/sbin/start_pwa_containers.sh#g' /usr/local/sbin/update_pwa_containers.sh
 
+
 - name: Modifying PWA scripts
   lineinfile:
     path: /usr/local/sbin/update_pwa_containers.sh

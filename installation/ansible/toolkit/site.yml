@@ -4,11 +4,19 @@
   remote_user: pavillen
   become: yes
   roles:
-    - common
-    - selinux
-    - ps-toolkit
-    - certs
+    #- common
+    #- selinux
+    #- ps-toolkit
+    #- certs
+    - speedtest
+
+
+  vars_prompt:
+    - name: "organisation_flavour"
+      prompt: "What's your organisation?\n1- Compute Canada\n2- Calcul Quebec\n3- Westgrid\n4- Canarie\n5- RISQ\n6- None of the above"
+      private: no 
 
   tasks: 
     - debug:
-        msg: "Login as root to finish the setup!"   
+        msg: "Login as root to finish the setup!"
+
