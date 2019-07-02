@@ -16,7 +16,7 @@
     mode: 0644
 
 - name: Generating download test file
-  command: dd if=/dev/urandom of=/var/www/speedtest/100mb bs=1048576 count=100 #100Mb
+  command: dd if=/dev/urandom of=/var/www/speedtest/1gb bs=1048576 count=1024 #1Gb
 
 - name: Transfering index.html
   copy:

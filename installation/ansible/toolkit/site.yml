@@ -4,11 +4,11 @@
   remote_user: pavillen
   become: yes
   roles:
-    #- common
-    #- selinux
-    #- ps-toolkit
-    #- certs
-    #- speedtest
+    - common
+    - selinux
+    - ps-toolkit
+    - certs
+    - speedtest
     - customization
 
 
