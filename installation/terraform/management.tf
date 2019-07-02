@@ -34,8 +34,13 @@ resource "openstack_compute_floatingip_associate_v2" "fip_1" {
 }
 
 
-# Outputs
+#Auto add record
+provider "cloudflare" {}
 
-output "central-management-public-address" {
-  value = "${openstack_networking_floatingip_v2.fip_1.address}"
+resource "cloudflare_record" "record_management" {
+  domain = "paspirine.xyz"
+  name   = "management"
+  value  = "${openstack_networking_floatingip_v2.fip_1.address}"
+  type   = "A"
+  ttl    = 1
 }

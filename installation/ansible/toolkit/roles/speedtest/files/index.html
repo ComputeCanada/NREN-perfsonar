@@ -7,7 +7,7 @@
 <style type="text/css">
 	html,body{
 		border:none; padding:0; margin:0;
-		background:#FFFFFF;
+		background:rgb(206, 206, 206);
 		color:#202020;
 	}
 	body{
@@ -113,15 +113,15 @@ function I(id){return document.getElementById(id);}
 
 var w=null; //speedtest worker
 var parameters={ //custom test parameters. See doc.md for a complete list
-        time_dl_max: 30, 
-        time_ul_max: 30, 
-        count_ping: 30, 
-        url_dl: "100mb",
-        time_auto: false,
-    getIp_ispInfo: true,
-    getIp_ispInfo_distance: false
+	time_dl_max: 30, 
+	time_ul_max: 30, 
+	count_ping: 30, 
+    url_dl: "100mb",
+    time_auto: false,
+	getIp_ispInfo: true,
+    getIp_ispInfo_distance: false,
+    enable_quirks: true
 };
-
 function startStop(){
 	if(w!=null){
 		//speedtest is running, abort
@@ -166,7 +166,7 @@ function initUI(){
 </script>
 </head>
 <body>
-<img src="speedtest-border.png" height="42" width="42"> 
+<h1>HTML5 Speedtest</h1>
 <div id="startStopBtn" onclick="startStop()"></div>
 <div id="test">
 	<div class="testGroup">
@@ -197,7 +197,7 @@ function initUI(){
 		IP Address: <span id="ip"></span>
 	</div>
 </div>
-<div>Custom parameters: <span id="params"></span><script type="text/javascript">I("params").textContent=JSON.stringify(parameters)</script></div>
 <script type="text/javascript">initUI();</script>
+<img src="speedtest-border.png"> 
 </body>
 </html>

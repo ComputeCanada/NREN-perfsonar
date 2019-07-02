@@ -1,27 +1,28 @@
 ---
 - name: Download and extracting speedtest files
   unarchive:
-    src: speedtest-core.zip
-    creates: /var/www/speedtest/
-    dest: /var/www/speedtest/
-    remote_src: yes
+    src: "speedtest.tar.xz"
+    dest: "/var/www/"
 
 - name: Installing prerequisite packages
   yum:
-    name: php,php-mysql
+    name: php
     state: latest
 
-- name: Adding speedtest to apache
+- name: Adding speedtest to apache config
   copy:
     src: "speedtest.conf"
     dest: "/etc/httpd/conf.d/speedtest.conf"
     mode: 0644
 
-- name: Generating download test files
-  command: {{ item }}
-  with_items:
-  - dd if=/dev/urandom of=/var/www/speedtest/100mb bs=1048576 count=100 #100Mb
-  - dd if=/dev/urandom of=/var/www/speedtest/1gb bs=1048576 count=1024 #1Gb
+- name: Generating download test file
+  command: dd if=/dev/urandom of=/var/www/speedtest/100mb bs=1048576 count=100 #100Mb
+
+- name: Transfering index.html
+  copy:
+    src: "index.html"
+    dest: "/var/www/speedtest"
+    mode: 0644
 
 - name: Restarting Apache
   service:

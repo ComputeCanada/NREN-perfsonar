@@ -24,8 +24,11 @@ resource "openstack_compute_floatingip_associate_v2" "fip_2" {
 }
 
 
-# Outputs
-
-output "toolkit-public-address" {
-  value = "${openstack_networking_floatingip_v2.fip_2.address}"
+#Auto add record
+resource "cloudflare_record" "record_toolkit" {
+  domain = "paspirine.xyz"
+  name   = "toolkit"
+  value  = "${openstack_networking_floatingip_v2.fip_2.address}"
+  type   = "A"
+  ttl    = 1
 }
