@@ -1,7 +1,7 @@
 ---
 - name: Web Admin Setup
   hosts: pswebadmin
-  remote_user: pavillen
+  remote_user: centos
   become: yes
   roles:
     - common

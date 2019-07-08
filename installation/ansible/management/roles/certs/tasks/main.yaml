@@ -1,5 +1,22 @@
 ---
-- name: Installing certbot (This may take a while...)
+- name: Installing certbot
   yum:
     name: certbot,python2-certbot-apache 
     state: latest
+
+- name: Preparing certbot
+  template:
+    src: "maddash.conf"
+    dest: "/etc/httpd/conf.d/maddash.conf"
+    mode: 0644
+
+- name: Preparing certs scripts
+  copy:
+    src: "generate-ca-certs.sh"
+    dest: "/root/generate-ca-certs.sh"
+    mode: 0744
+
+- name: Restarting httpd
+  service:
+    name: httpd
+    state: restarted

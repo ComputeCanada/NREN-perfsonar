@@ -11,3 +11,8 @@
 
 - name: Adding perfSONAR firewall rules
   command: /usr/lib/perfsonar/scripts/configure_firewall install
+
+  - name: Customizing based on the selected flavour
+  copy:
+    src: "limits.conf"
+    dest: "/etc/pscheduler/limits.conf"

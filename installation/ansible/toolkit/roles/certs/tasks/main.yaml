@@ -3,3 +3,14 @@
   yum:
     name: certbot,python2-certbot-apache 
     state: latest
+
+- name: Preparing certs scripts
+  copy:
+    src: "generate-ca-certs.sh"
+    dest: "/root/generate-ca-certs.sh"
+    mode: 0744
+
+- name: Restarting httpd
+  service:
+    name: httpd
+    state: restarted

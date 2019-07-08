@@ -1,10 +1,15 @@
 ---
 - name: Perfsonar Central Management Setup
   hosts: psmanagement
-  remote_user: pavillen
+  remote_user: centos
   become: yes
   roles:
     - common
     - selinux
     - ps-management
     - certs
+
+  vars_prompt:
+    - name: "maddash_address"
+      prompt: "(LetsEncrypt) What's the name of the domain you want to register? A and/or AAAA records should be present at this point."
+      private: no 

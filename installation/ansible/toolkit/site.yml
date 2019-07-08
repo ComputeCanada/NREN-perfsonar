@@ -1,7 +1,7 @@
 ---
 - name: Perfsonar toolkit Setup
   hosts: pstoolkit
-  remote_user: pavillen
+  remote_user: centos
   become: yes
   roles:
     - common
