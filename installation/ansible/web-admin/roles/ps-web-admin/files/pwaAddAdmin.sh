@@ -4,7 +4,8 @@
 echo -n "Enter desired username and press [ENTER]: "
 read user
 echo -n "Enter desired password and press [ENTER]: "
-read passwd
+read -s passwd
+echo
 echo -n "Enter full name and press [ENTER]: "
 read name
 echo -n "Enter email and press [ENTER]: "

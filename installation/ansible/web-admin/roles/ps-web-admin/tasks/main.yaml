@@ -76,7 +76,7 @@
     daemon_reload: yes
     name: PWAdocker
     enabled: yes
-
+    state: started
 
 - name: Initializing docker
   command: /usr/local/sbin/init_docker.sh

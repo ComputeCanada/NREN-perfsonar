@@ -1,4 +1,9 @@
 ---
+#- name: Upgrading all packages
+#  yum:
+#    name: '*'
+#    state: latest
+
 - name: Ensuring EPEL is enabled 
   yum: 
     name: epel-release 
